@@ -1,0 +1,141 @@
+{
+  "slug": "chro",
+  "title": "CPO・CHRO向け戦略的人事分析・ツール | Culture Amp",
+  "hero": {
+    "heading": "従業員のインサイトをビジネスの成果に変える",
+    "description": "ビジネスの成果を促進するハイパフォーマンスなカルチャーを構築します。15年以上にわたるピープルサイエンスの探求とAIによって強化されたCulture Ampは、持続可能なハイパフォーマンス、カルチャー、そして実際の仕事の進め方を結びつけ、人事リーダーが自信を持って行動できるように支援します。",
+    "primaryCta": "デモをリクエスト",
+    "secondaryCta": "プラットフォームを見る"
+  },
+  "sections": [
+    {
+      "type": "feature-grid",
+      "heading": "6,000社以上の企業に導入されています",
+      "description": "",
+      "items": []
+    },
+    {
+      "type": "text-image-split",
+      "heading": "人事を戦略的な原動力に変える",
+      "description": "人事トップであるあなたは、組織の成功が「人」にかかっていることをご存じでしょう。Culture Ampは、従業員インサイトを測定可能な結果へと変え、経営陣において人事の確固たるプレゼンスを確立するために必要なデータ、ツール、分析を提供します。",
+      "items": []
+    },
+    {
+      "type": "text-image-split",
+      "heading": "リアルタイムな従業員インサイトで変化に対応する",
+      "description": "変化が訪れた際にも、すぐに対応する準備が整います。Culture Ampのリアルタイムなインサイトは、状況にすばやく適応し、ビジネスに重要なインパクトをもたらし、ビジネスのスピードに合わせて変化を乗り切るための手助けをします。",
+      "items": []
+    },
+    {
+      "type": "text-image-split",
+      "heading": "組織の成長がもたらすROIを可視化する",
+      "description": "従業員への投資は確実に報われます。そして私たちはそれを証明できます。Culture Ampがどのようにエンゲージメントを高め、離職を減らし、人事チームが本当に重要な業務に時間を割けるようにするのかをご覧ください。",
+      "items": [
+        {
+          "title": "レポートを見る",
+          "description": "",
+          "imageUrl": "/images/placeholder.jpg"
+        }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "heading": "6,000社以上、300万人以上のユーザーに利用されています",
+      "description": "",
+      "items": []
+    },
+    {
+      "type": "feature-grid",
+      "heading": "製品の特徴",
+      "description": "",
+      "items": [
+        {
+          "title": "パフォーマンスの向上",
+          "description": "組織全体にハイパフォーマンスなカルチャーを醸成する\n\nさらなる成果を達成する準備が整った、団結力のある目標指向の組織を構築します。科学的根拠に基づいたツールを活用して、より意味のある影響力の大きい仕事を可能にし、人材を育成します。人が成長すれば、成果も飛躍的に向上するからです。",
+          "imageUrl": "/images/placeholder.jpg"
+        },
+        {
+          "title": "インサイトの抽出",
+          "description": "ハイパフォーマンスなカルチャーを推進するためのインサイトを抽出する\n\nAIを活用した従業員と企業のインサイトを解き放ちます。フィードバックを、エンゲージメント、パフォーマンス、カルチャーの向上に役立つパーソナライズされたガイダンスに変換します。",
+          "imageUrl": "/images/placeholder.jpg"
+        },
+        {
+          "title": "定着率の向上",
+          "description": "エンゲージメントと定着率の要因を可視化する\n\n従業員の声に耳を傾け、学習し、対応する人事戦略を構築します。40以上のサーベイテンプレート、AIによるコメント分析、注力分野を活用して、優秀な人材を引き留めるエンゲージメントの要因を理解します。",
+          "imageUrl": "/images/placeholder.jpg"
+        }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "heading": "Culture Ampの違い",
+      "description": "",
+      "items": [
+        {
+          "title": "ピープルサイエンス",
+          "description": "仕事をより良くする新しい方法を発見する\n\nピープルサイエンスは私たちが取り組むすべての中心にあります。製品とソリューション内に組織心理学とデータサイエンスを組み合わせることで、成長する職場文化の構築における当て推量を排除します。",
+          "imageUrl": "/images/placeholder.jpg"
+        },
+        {
+          "title": "目的に特化したAI",
+          "description": "証拠に基づくインサイトとインパクトをもたらすAI\n\n10年にわたるピープルサイエンスに裏付けられた当社のAIは、プロンプトを科学的に検証し、高品質なインサイトを提供します。AIをどこにどのように適用するかを意図的に設計し、顧客の実際のインサイトに裏付けられるようにしています。",
+          "imageUrl": "/images/placeholder.jpg"
+        },
+        {
+          "title": "データインサイト",
+          "description": "世界最大級の従業員データソース\n\n16億以上の質問に回答が寄せられた当社は、エンゲージメントとパフォーマンスに関する世界最大規模のデータソースを有しています。それらのインサイトをプラットフォームに還元し、リーダーにインサイトとベンチマークを提供します。",
+          "imageUrl": "/images/placeholder.jpg"
+        },
+        {
+          "title": "ワールドクラスのUX",
+          "description": "最も愛されているエンゲージメント＆パフォーマンスプラットフォーム\n\n直感的なインターフェースと受賞歴のあるマネージャー向けツールにより、サーベイを迅速に開始し、1on1を実施し、従業員のインサイトから有意義なアクションを簡単に起こすことができます。",
+          "imageUrl": "/images/placeholder.jpg"
+        }
+      ]
+    },
+    {
+      "type": "testimonial",
+      "heading": "導入事例",
+      "description": "",
+      "items": [
+        {
+          "title": "Nascar",
+          "description": "「ポリシーの変更を推進する際、データは不可欠です。Culture Ampを通じて収集したインサイトは、私たちの意思決定と行動を形作る上で極めて重要でした。」\n\nJohn Ferguson / Chief Human Resources Officer",
+          "imageUrl": "/images/placeholder.jpg"
+        },
+        {
+          "title": "OLX Group",
+          "description": "「Culture Ampと連携することで、従業員リスニングを向上させるという目標を達成できました。現在では、継続的なリスニングとアクションのループが確立されています。これにより、データを使ってマネージャーを支援し、従業員が重要だと伝えてきたことに対して、目に見える迅速な対応ができるようになりました。」\n\nChristian Gisy / CEO",
+          "imageUrl": "/images/placeholder.jpg"
+        },
+        {
+          "title": "Wave Utilities",
+          "description": "「Culture Ampは企業の目標と従業員の目標をすり合わせるため、メンバーは自分たちの仕事がどのように戦略を推進するのかを理解できます。また、キャリブレーションを使用することで、人事の決定が公平であることを保証しています。」\n\nMandy Rutherford / L&D Manager",
+          "imageUrl": "/images/placeholder.jpg"
+        },
+        {
+          "title": "On",
+          "description": "「全体的かつ分析的なアプローチにアクセスできたことで、過去3年間で最も大きなインパクトをもたらす決定を下すことができました。」\n\nSahra Kaboli-Nejad / Head of DEI and Social Impact",
+          "imageUrl": "/images/placeholder.jpg"
+        }
+      ]
+    },
+    {
+      "type": "text-image-split",
+      "heading": "最も革新的な企業は、より良い仕事の世界を創るためにCulture Ampを利用しています",
+      "description": "",
+      "items": [
+        {
+          "title": "デモをリクエスト",
+          "description": "",
+          "imageUrl": "/images/placeholder.jpg"
+        },
+        {
+          "title": "仕組みを見る",
+          "description": "",
+          "imageUrl": "/images/placeholder.jpg"
+        }
+      ]
+    }
+  ]
+}
