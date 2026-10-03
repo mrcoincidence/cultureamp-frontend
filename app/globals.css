@@ -91,16 +91,15 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 768px) { .heading-xl { font-size: 3.75rem; line-height: 4.25rem; } }
 @media (min-width: 1200px) { .heading-xl { font-size: 5.25rem; line-height: 5.625rem; } }
 
-/* heading-lg のデスクトップサイズを 3.25rem に調整 */
 .heading-lg { font-size: 2rem; line-height: 2.5rem; }
 @media (min-width: 768px) { .heading-lg { font-size: 3rem; line-height: 3.75rem; } }
 @media (min-width: 1200px) { .heading-lg { font-size: 3.25rem; line-height: 3.75rem; } }
 
+/* heading-md の 1200px 以上を 2.75rem / 3.75rem に変更 */
 .heading-md { font-size: 2rem; line-height: 2.5rem; }
 @media (min-width: 768px) { .heading-md { font-size: 2.5rem; line-height: 3rem; } }
-@media (min-width: 1200px) { .heading-md { font-size: 3rem; line-height: 3.75rem; } }
+@media (min-width: 1200px) { .heading-md { font-size: 2.75rem; line-height: 3.25rem; } }
 
-/* heading-sm のデスクトップサイズを 2rem に調整 */
 .heading-sm { font-size: 1.5rem; line-height: 2.125rem; }
 @media (min-width: 768px) { .heading-sm { font-size: 1.75rem; line-height: 2.25rem; } }
 @media (min-width: 1200px) { .heading-sm { font-size: 2rem; line-height: 2.5rem; } }

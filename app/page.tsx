@@ -1,10 +1,14 @@
 'use client';
 
 import { useState } from "react";
-import { Plus, ChevronRight } from "lucide-react";
+import { Plus, Minus, ChevronRight } from "lucide-react";
 
 export default function Home() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  // ペルソナタブの状態管理
+  const [activePersonaIndex, setActivePersonaIndex] = useState(0);
+
+  // アコーディオンの状態管理（デフォルトで1つ目を開く）
+  const [openAccordion, setOpenAccordion] = useState<number | null>(0);
 
   const personas = [
     {
@@ -53,26 +57,68 @@ export default function Home() {
     },
   ];
 
-  const currentPersona = personas[activeIndex];
+  const currentPersona = personas[activePersonaIndex];
 
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev === 0 ? personas.length - 1 : prev - 1));
+  const handlePrevPersona = () => {
+    setActivePersonaIndex((prev) => (prev === 0 ? personas.length - 1 : prev - 1));
   };
 
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev === personas.length - 1 ? 0 : prev + 1));
+  const handleNextPersona = () => {
+    setActivePersonaIndex((prev) => (prev === personas.length - 1 ? 0 : prev + 1));
   };
+
+  const accordions = [
+    {
+      title: "迅速な立ち上げを可能にするサービスとサポート",
+      heading: "迅速な立ち上げを可能にするサポート体制",
+      description:
+        "当社のサポートプランは最高水準の品質と安心を提供します。業界トップクラスの導入スピードと親身なサポート体制で、組織の定着化を力強く後押しします。\n・エンタープライズ向けパフォーマンス管理導入で迅速性を実現\n・週5日/24時間のカスタマーサポート\n・充実したナレッジセンターと開発者向けドキュメント",
+      image:
+        "https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/vs4zvb8Uyi65Ec24pVeP1s2s6Xk=/750x0/cultureampcom/production/c87/c4a/21a/c87c4a21af4c307cd8d46ca1/content-drawer-feature-service-model.png",
+      ctaText: null,
+      ctaLink: "",
+    },
+    {
+      title: "お客様のデータを安全に保ちます",
+      heading: "強固なセキュリティとコンプライアンスでデータを保護",
+      description:
+        "従業員データの安全性確保は極めて重要です。Culture Ampは、お客様および従業員の皆様からお預かりしたすべてのシステムとデータの機密性・完全性・可用性を保護し、SOC 2、ISO 27001、GDPRなどの国際基準に準拠しています。",
+      image:
+        "https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/rMBcRDNXvAmsqlxLggiFcgSQwvA=/750x0/cultureampcom/production/179/29f/c23/17929fc233b649f2c55b08db/content-drawer-feature-security.png",
+      ctaText: "セキュリティの詳細を見る",
+      ctaLink: "/company/trust",
+    },
+    {
+      title: "専門的な人事リソースへのアクセス",
+      heading: "ピープル戦略のあらゆるステップで知見を活用",
+      description:
+        "組織文化とピープル戦略の強化をあらゆる段階でガイドします。業界を牽引する専門家による最新リサーチ、ベストプラクティス、実践ガイドにいつでもアクセス可能です。",
+      image:
+        "https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/mYVWgSHzjmoHLAcB3aCpOTGdklY=/750x0/cultureampcom/production/41c/a39/e08/41ca39e08512c5d4d28c25b9/content-drawer-feature-resources.png",
+      ctaText: "リソースハブを見る",
+      ctaLink: "/resources",
+    },
+    {
+      title: "世界最大級の人事ネットワークとグローバルコミュニティに参加",
+      heading: "グローバルな人事リーダーのコミュニティに参画",
+      description:
+        "「Culture First Community」は、より良い働き方の実現を目指すピープルリーダー、人事実務家、チェンジエージェントが集う世界最大級のコミュニティです。",
+      image:
+        "https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/JoJaqpuyknGmSnkt8LtVvizQ_jc=/1000x1000/cultureampcom/production/9c7/1c0/0ce/9c71c00cecd2b929734d7c46/case-study-unifonic2x.png",
+      ctaText: "コミュニティに参加する",
+      ctaLink: "/company/community",
+    },
+  ];
 
   return (
     <div className="bg-pale text-black font-sans selection:bg-purple-200">
       
       {/* ==========================================================================
-         1. HERO SECTION (グレーはみ出し解消・背景画像内部へ動画を精密レイヤー配置)
+         1. HERO SECTION
          ========================================================================== */}
       <section className="mb-60 tablet:mb-108 desktop:mb-156 pt-24 desktop:pt-84 desktop:mb-108">
         <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24 items-center">
           
-          {/* 左側コピーエリア */}
           <div className="z-40 flex flex-col gap-24 desktop:gap-36 justify-center row-start-1 col-span-full tablet:col-span-10 tablet:col-start-2 desktop:col-span-5 desktop:col-start-1 items-center desktop:items-start text-center desktop:text-left mb-36 tablet:mb-60 desktop:mb-0">
             <h1 className="font-heading font-medium heading-lg text-center text-balance desktop:text-left">
               組織文化を最大の競争優位性に
@@ -88,16 +134,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 右側：背景写真の中に動画がぴったり収まる精密構造 */}
           <div className="row-start-2 desktop:row-start-1 col-span-full tablet:col-span-10 desktop:col-span-6 col-start-1 tablet:col-start-2 desktop:col-start-7 flex flex-col justify-center relative overflow-hidden rounded-[32px]">
-            {/* 奥：背景画像 */}
             <img 
               src="https://www.cultureamp.com/assets/slices/main/assets/public/media/home/home-hero-background-ab3d3e5c7416a1ae74e2.webp" 
               alt="Hero Background" 
               className="w-full h-auto rounded-[32px] object-cover block"
             />
 
-            {/* 手前：背景写真の中央に配置される動画カード */}
             <div className="absolute inset-0 p-16 tablet:p-28 desktop:p-36 flex flex-col justify-center items-center pointer-events-none">
               <div className="shadow-1 rounded-3xl overflow-hidden w-full h-full pointer-events-auto flex items-center justify-center">
                 <iframe 
@@ -162,14 +205,13 @@ export default function Home() {
           
           <div className="bg-tan rounded-none p-24 tablet:p-36 desktop:p-60">
             
-            {/* タブメニュー */}
             <div className="hidden tablet:flex gap-x-36 desktop:gap-x-48 pb-12 mb-36 desktop:mb-48 font-semibold text-14 desktop:text-16">
               {personas.map((persona, idx) => (
                 <button 
                   key={persona.id}
-                  onClick={() => setActiveIndex(idx)}
+                  onClick={() => setActivePersonaIndex(idx)}
                   className={`cursor-pointer transition-all ${
-                    activeIndex === idx 
+                    activePersonaIndex === idx 
                       ? "text-black font-bold border-b-2 border-black pb-12 -mb-[14px]" 
                       : "text-muted hover:text-black pb-12"
                   }`}
@@ -179,10 +221,8 @@ export default function Home() {
               ))}
             </div>
 
-            {/* メインコンテンツ */}
             <div className="grid grid-cols-1 desktop:grid-cols-12 gap-x-24 gap-y-36 items-center">
               
-              {/* 左カラム：テキスト ＋ 矢印ボタン */}
               <div className="desktop:col-span-5 flex flex-col justify-between h-full py-12 text-black">
                 <div>
                   <p className="tablet:hidden text-14 font-semibold mb-24">{currentPersona.title}</p>
@@ -196,7 +236,7 @@ export default function Home() {
 
                 <div className="flex gap-16 items-center pt-24">
                   <button 
-                    onClick={handlePrev}
+                    onClick={handlePrevPersona}
                     className="w-[52px] h-[52px] rounded-full border border-black flex items-center justify-center bg-transparent hover:bg-black/10 transition-colors cursor-pointer p-0"
                     aria-label="前のペルソナへ"
                   >
@@ -207,7 +247,7 @@ export default function Home() {
                     />
                   </button>
                   <button 
-                    onClick={handleNext}
+                    onClick={handleNextPersona}
                     className="w-[52px] h-[52px] rounded-full border border-black flex items-center justify-center bg-transparent hover:bg-black/10 transition-colors cursor-pointer p-0"
                     aria-label="次のペルソナへ"
                   >
@@ -220,7 +260,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 右カラム：背景写真 ＋ 重ね合わせ動画UI */}
               <div className="desktop:col-span-7 relative min-h-[360px] desktop:min-h-[440px] flex items-center justify-end">
                 <img 
                   src={currentPersona.bgImage} 
@@ -254,20 +293,23 @@ export default function Home() {
         <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24">
           <div className="col-start-1 col-span-full text-center">
             <h2 className="font-heading font-medium heading-sm text-balance mb-24 tablet:mb-36 desktop:mb-48">
-              人のために構築され、結果で証明されています
+              皆様のおかげで、世界最大級のIT製品レビュープラットフォーム「G2」で高い評価をいただいております。
             </h2>
             <ul className="flex flex-wrap gap-24 tablet:gap-36 desktop:gap-48 items-center justify-center">
               <li className="max-w-[66px] tablet:max-w-84 desktop:max-w-[110px]">
-                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/Q1MFCXP-KmUsHkHKbPCgPw5AT4k=/0x500/cultureampcom/production/f6c/32f/7d0/f6c32f7d0e1c7c8be851a746/EmployeeEngagement-Leader-Enterprise-Leader.png" alt="G2 Badge" className="w-full h-auto" />
+                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/Q1MFCXP-KmUsHkHKbPCgPw5AT4k=/0x500/cultureampcom/production/f6c/32f/7d0/f6c32f7d0e1c7c8be851a746/EmployeeEngagement-Leader-Enterprise-Leader.png" alt="Enterprise Leader G2 badge" className="w-full h-auto" />
               </li>
               <li className="max-w-[66px] tablet:max-w-84 desktop:max-w-[110px]">
-                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/dBKRW3K-EaqrV_mwewMPkZ21IGE=/0x500/cultureampcom/production/20d/252/f80/20d252f8085653948e28a0d8/EmployeeEngagement-Leader-Mid-Market-Leader.png" alt="G2 Badge" className="w-full h-auto" />
+                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/dBKRW3K-EaqrV_mwewMPkZ21IGE=/0x500/cultureampcom/production/20d/252/f80/20d252f8085653948e28a0d8/EmployeeEngagement-Leader-Mid-Market-Leader.png" alt="Mid-Market Leader G2 badge" className="w-full h-auto" />
               </li>
               <li className="max-w-[66px] tablet:max-w-84 desktop:max-w-[110px]">
-                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/9HsIwuc3rcDMMUl3gl43MrEgb3k=/0x500/cultureampcom/production/cb9/8ec/dfc/cb98ecdfca76c8b9bdd058bc/CareerManagement-BestResults-Enterprise-Total.png" alt="G2 Badge" className="w-full h-auto" />
+                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/9HsIwuc3rcDMMUl3gl43MrEgb3k=/0x500/cultureampcom/production/cb9/8ec/dfc/cb98ecdfca76c8b9bdd058bc/CareerManagement-BestResults-Enterprise-Total.png" alt="Best Results Enterprise G2 badge" className="w-full h-auto" />
               </li>
               <li className="max-w-[66px] tablet:max-w-84 desktop:max-w-[110px]">
-                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/yWo7sKnFPSItRUbQ4F47uH3Syek=/0x500/cultureampcom/production/5d2/cb4/224/5d2cb42243b7ebf6c4dd647e/HRAnalytics-HighPerformer-Enterprise-HighPerformer.png" alt="G2 Badge" className="w-full h-auto" />
+                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/yWo7sKnFPSItRUbQ4F47uH3Syek=/0x500/cultureampcom/production/5d2/cb4/224/5d2cb42243b7ebf6c4dd647e/HRAnalytics-HighPerformer-Enterprise-HighPerformer.png" alt="High Performer Enterprise G2 badge" className="w-full h-auto" />
+              </li>
+              <li className="max-w-[66px] tablet:max-w-84 desktop:max-w-[110px]">
+                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/JQI2rxTeVixI-2kxdo5BaXQGLtc=/0x500/cultureampcom/production/684/e26/fe2/684e26fe22d534171a874d2a/ObjectivesandKeyResultsOKR-MostImplementable-Mid-Market-Total.png" alt="Most Implementable Mid-Market G2 badge" className="w-full h-auto" />
               </li>
             </ul>
           </div>
@@ -304,25 +346,65 @@ export default function Home() {
          6. CONTENT DRAWER / ACCORDION SECTION
          ========================================================================== */}
       <section className="mb-60 tablet:mb-108 desktop:mb-156">
-        <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24">
-          <div className="row-start-1 col-start-1 tablet:col-start-2 col-span-full tablet:col-span-10 py-24 desktop:py-48 bg-white shadow-2 rounded-3xl px-24 tablet:px-36">
-            {[
-              "スケーラブル、安全、画面の相互運用性",
-              "迅速に立ち上げるためのサービスとサポート",
-              "お客様のデータを安全に保ちます",
-              "専門的な人事リソースへのアクセス",
-              "世界最大の人事ネットワークとグローバルコミュニティに参加"
-            ].map((title, i) => (
-              <div key={i} className="group border-b last:border-b-0 border-black-10 py-12 desktop:py-24 cursor-pointer flex justify-between items-center transition-all">
-                <h2 className="font-main text-lg transition duration-500 group-hover:translate-x-10">
-                  {title}
-                </h2>
-                <span className="border border-black-30 rounded-full p-12 transition-all group-hover:bg-black-10 group-hover:border-black flex-shrink-0 ml-4">
-                  <Plus size={20} />
-                </span>
-              </div>
-            ))}
+        <div className="container">
+          
+          <div className="-mx-20 tablet:mx-0 bg-white shadow-2 p-24 tablet:p-36">
+            <div className="divide-y divide-black/10">
+              {accordions.map((item, idx) => {
+                const isOpen = openAccordion === idx;
+                return (
+                  <div key={idx} className="py-12 desktop:py-16">
+                    
+                    <button
+                      onClick={() => setOpenAccordion(isOpen ? null : idx)}
+                      className="w-full flex items-center justify-between text-left group cursor-pointer py-8"
+                    >
+                      <h2 className="font-main text-16 tablet:text-18 font-medium transition-transform duration-300 group-hover:translate-x-2 pr-16">
+                        {item.title}
+                      </h2>
+                      <span className="border border-black/30 rounded-full p-8 transition-all group-hover:bg-black/10 group-hover:border-black flex-shrink-0">
+                        {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+                      </span>
+                    </button>
+
+                    {isOpen && (
+                      <div className="pt-16 pb-12 animate-in fade-in duration-300">
+                        <div className="grid grid-cols-1 desktop:grid-cols-12 gap-x-24 gap-y-24 items-center">
+                          
+                          <div className="desktop:col-span-6 flex flex-col justify-center">
+                            <h3 className="font-heading font-medium heading-sm mb-12 text-pretty">
+                              {item.heading}
+                            </h3>
+                            <div className="copy text-md whitespace-pre-line text-[#524F4C] leading-relaxed mb-20">
+                              <p>{item.description}</p>
+                            </div>
+                            {item.ctaText && (
+                              <div>
+                                <a href={item.ctaLink} className="button button--secondary">
+                                  {item.ctaText}
+                                </a>
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="desktop:col-span-6 flex justify-center">
+                            <img
+                              src={item.image}
+                              alt={item.title}
+                              className="w-full max-w-[420px] h-auto object-contain rounded-2xl"
+                            />
+                          </div>
+
+                        </div>
+                      </div>
+                    )}
+
+                  </div>
+                );
+              })}
+            </div>
           </div>
+
         </div>
       </section>
 
@@ -330,46 +412,74 @@ export default function Home() {
          7. RESOURCES / BRAND CAMPAIGN SECTION
          ========================================================================== */}
       <section className="mb-60 tablet:mb-108 desktop:mb-156">
-        <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24">
-          <div className="col-start-1 col-span-full tablet:col-span-6 desktop:col-span-5 flex flex-col justify-center mb-36 tablet:mb-60">
+        <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24 items-center">
+          
+          <div className="col-start-1 col-span-full tablet:col-span-6 desktop:col-span-5 flex flex-col justify-center mb-36 tablet:mb-48">
             <h2 className="heading-md font-heading font-medium text-pretty mb-16 tablet:mb-24">
               リーダーはいかにして高業績を形成するか
             </h2>
-            <div className="text-lg">
+            <div className="text-lg text-[#524F4C]">
               優れた職場を築くためのアイデア、ツール、視点をご覧ください。
             </div>
           </div>
           
+          <div className="col-span-full tablet:col-span-6 tablet:col-start-7 desktop:col-span-7 flex justify-center desktop:justify-end mb-36 tablet:mb-48">
+            <img 
+              src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/t5VmfpfCJnNo4X2gYreinM0BVy4=/1250x0/cultureampcom/production/ee6/924/c68/ee6924c6808530f048e963d9/brand-campaigns-home.png" 
+              alt="How Leaders Shape High Performance" 
+              className="w-full max-w-[480px] desktop:max-w-[540px] h-auto object-contain"
+            />
+          </div>
+
           <div className="col-span-full grid grid-cols-1 tablet:grid-cols-2 gap-y-16 tablet:gap-y-24 gap-x-24 desktop:gap-x-84">
             {[
-              "Culture drives performance",
-              "Tennis Australia",
-              "Emerging Culture Creators",
-              "Esther Perel, managers guide",
-              "Culture First podcast",
-              "Performance Unlocked"
+              {
+                title: "カルチャーがパフォーマンスを推進する",
+                link: "/culture-drives-performance",
+              },
+              {
+                title: "テニス・オーストラリア導入事例",
+                link: "/tennis-australia",
+              },
+              {
+                title: "次世代カルチャークリエイター",
+                link: "/emerging-culture-creators",
+              },
+              {
+                title: "エスター・ペレルによるマネージャーガイド",
+                link: "/resources/guides-and-toolkits/esther-perel-managers-guide",
+              },
+              {
+                title: "Culture First ポッドキャスト",
+                link: "/podcast",
+              },
+              {
+                title: "パフォーマンスの可能性を解き放つ",
+                link: "/resources/tag/performance-unlocked",
+              },
             ].map((item, idx) => (
-              <div key={idx} className="group relative col-span-1 border-l border-b border-black-30">
-                <a href="#" className="flex items-center justify-between px-16 py-12 desktop:px-24 desktop:py-16">
-                  <h3 className="text-16 tablet:text-24 font-heading font-medium group-hover:text-purple-400 transition-colors">
-                    {item}
+              <div key={idx} className="group relative col-span-1 border-l border-b border-black/30">
+                <a href={item.link} className="flex items-center justify-between px-16 py-12 desktop:px-24 desktop:py-16">
+                  <h3 className="text-16 tablet:text-20 font-heading font-medium group-hover:text-purple-600 transition-colors">
+                    {item.title}
                   </h3>
-                  <ChevronRight size={20} className="text-black group-hover:text-purple-400 transition-colors" />
+                  <ChevronRight size={20} className="text-black group-hover:text-purple-600 transition-colors flex-shrink-0 ml-8" />
                 </a>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
       {/* ==========================================================================
-         8. FINAL BOTTOM CTA SECTION
+         8. FINAL BOTTOM CTA SECTION (文言変更)
          ========================================================================== */}
       <section className="pb-60 tablet:pb-84 desktop:pb-132">
         <div className="container grid grid-cols-1 tablet:grid-cols-12 gap-x-24">
           <div className="col-span-full tablet:col-span-8 desktop:col-span-6 tablet:col-start-3 desktop:col-start-4 text-balance text-center">
             <h2 className="font-heading font-medium heading-lg mb-36">
-              人への投資が、確かなインパクトを創り出す
+              従業員への投資が、確かなインパクトを創り出します
             </h2>
             <div className="flex flex-col tablet:flex-row items-center justify-center gap-16">
               <button className="button button--primary">
