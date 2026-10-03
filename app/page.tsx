@@ -1,37 +1,85 @@
+'use client';
+
+import { useState } from "react";
 import { Plus, ChevronRight } from "lucide-react";
 
 export default function Home() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const personas = [
+    {
+      id: "leaders",
+      label: "リーダー",
+      title: "リーダー向け",
+      heading: "パフォーマンスを促進するデータに基づく意思決定に必要なインサイトを取得",
+      description:
+        "Culture AmpのAIとピープルサイエンスによるレコメンデーションは、ビジネスの画期的なパフォーマンスを解き放つための、より良い意思決定を可能にします。",
+      bgImage:
+        "https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/VFQ4H7Q23r8DGMzAR4YluDUJn9Y=/750x0/cultureampcom/production/0f0/715/fa0/0f0715fa00e594569b090ec0/set-persona-managers.jpg",
+      wistiaId: "hasx2xhtgd",
+    },
+    {
+      id: "managers",
+      label: "マネージャー",
+      title: "マネージャー向け",
+      heading: "チームのエンゲージメントを高め、確信を持ってチームを牽引",
+      description:
+        "データに基づいたタイムリーなフィードバックとガイドにより、現場のマネージャーがチームの課題を早期に発見し、アクションへ移せるよう支援します。",
+      bgImage:
+        "https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/OAwmUeJ5nnbrXSopJXARGPXv_ZU=/750x0/cultureampcom/production/570/97c/50c/57097c50ca948577c14d4718/set-persona-leaders.jpg",
+      wistiaId: "7oaad21wk7",
+    },
+    {
+      id: "employees",
+      label: "従業員",
+      title: "従業員向け",
+      heading: "自らの成長を実感し、働きがいのある職場環境を実現",
+      description:
+        "明確な目標設定、継続的なフィードバック、キャリア開発プランを通じて、すべての従業員が自らの可能性を最大限に発揮できる環境を提供します。",
+      bgImage:
+        "https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/AY0lhZpGGGR5gI3Q1Sy1bKrRucc=/750x0/cultureampcom/production/ac3/b01/80a/ac3b0180a81c4d20f05e0a23/set-differentiator-people-science.jpg",
+      wistiaId: "2zlq3b9i8z",
+    },
+    {
+      id: "hr",
+      label: "人事チーム",
+      title: "人事チーム向け",
+      heading: "戦略的人事の推進とオペレーション効率化を両立",
+      description:
+        "一元化されたデータプラットフォームと高度なアナリティクスにより、人事の事務負担を軽減し、全社的な組織変革にリソースを集中させます。",
+      bgImage:
+        "https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/vs4zvb8Uyi65Ec24pVeP1s2s6Xk=/750x0/cultureampcom/production/c87/c4a/21a/c87c4a21af4c307cd8d46ca1/content-drawer-feature-service-model.png",
+      wistiaId: "nhe4y03lqf",
+    },
+  ];
+
+  const currentPersona = personas[activeIndex];
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev === 0 ? personas.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev === personas.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <div className="bg-pale text-black font-sans selection:bg-purple-200">
       
       {/* ==========================================================================
-         1. HERO SECTION
+         1. HERO SECTION (グレーはみ出し解消・背景画像内部へ動画を精密レイヤー配置)
          ========================================================================== */}
       <section className="mb-60 tablet:mb-108 desktop:mb-156 pt-24 desktop:pt-84 desktop:mb-108">
-        <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24">
+        <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24 items-center">
           
           {/* 左側コピーエリア */}
           <div className="z-40 flex flex-col gap-24 desktop:gap-36 justify-center row-start-1 col-span-full tablet:col-span-10 tablet:col-start-2 desktop:col-span-5 desktop:col-start-1 items-center desktop:items-start text-center desktop:text-left mb-36 tablet:mb-60 desktop:mb-0">
-            <h1 className="font-heading font-medium heading-lg text-center text-balance desktop:text-left break-keep">
-              組織文化を最大の<br className="hidden desktop:block" />競争優位性に
+            <h1 className="font-heading font-medium heading-lg text-center text-balance desktop:text-left">
+              組織文化を最大の競争優位性に
             </h1>
             <div className="copy text-lg text-balance text-center desktop:text-left">
-              ピープルサイエンスとAIを活用したCulture Ampは、パフォーマンス、定着率、そして組織の持続的成長を推進するためのインサイトと実践的ツールを提供します。
+              ピープルサイエンスとAIを活用したCulture Ampは、パフォーマンス、定着率、増収を推進するためのインサイトと実践的ツールを提供します。
             </div>
-            
-            {/* 評価バッジ */}
-            <ul className="flex gap-x-24">
-              <li className="flex items-center">
-                <div className="w-[30px] h-[30px] mr-8 bg-black flex items-center justify-center rounded-sm text-white font-bold text-12">G2</div>
-                <span className="text-20 font-bold mr-4">4.5</span>
-                <span className="text-10 text-muted">on G2</span>
-              </li>
-              <li className="flex items-center">
-                <div className="w-[30px] h-[30px] mr-8 bg-black flex items-center justify-center rounded-sm text-white font-bold text-12">C</div>
-                <span className="text-20 font-bold mr-4">4.6</span>
-                <span className="text-10 text-muted">on Capterra</span>
-              </li>
-            </ul>
 
             <div className="flex flex-col tablet:flex-row items-center gap-16">
               <button className="button button--primary">
@@ -40,13 +88,26 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 右側ヒーロービジュアル */}
-          <div className="row-start-2 desktop:row-start-1 col-span-full tablet:col-span-10 desktop:col-span-6 tablet:col-start-2 desktop:col-start-7 flex flex-col justify-center">
+          {/* 右側：背景写真の中に動画がぴったり収まる精密構造 */}
+          <div className="row-start-2 desktop:row-start-1 col-span-full tablet:col-span-10 desktop:col-span-6 col-start-1 tablet:col-start-2 desktop:col-start-7 flex flex-col justify-center relative overflow-hidden rounded-[32px]">
+            {/* 奥：背景画像 */}
             <img 
-              src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/OAwmUeJ5nnbrXSopJXARGPXv_ZU=/750x0/cultureampcom/production/570/97c/50c/57097c50ca948577c14d4718/set-persona-leaders.jpg" 
-              alt="Culture Amp Platform" 
-              className="w-full rounded-[32px] object-cover shadow-1"
+              src="https://www.cultureamp.com/assets/slices/main/assets/public/media/home/home-hero-background-ab3d3e5c7416a1ae74e2.webp" 
+              alt="Hero Background" 
+              className="w-full h-auto rounded-[32px] object-cover block"
             />
+
+            {/* 手前：背景写真の中央に配置される動画カード */}
+            <div className="absolute inset-0 p-16 tablet:p-28 desktop:p-36 flex flex-col justify-center items-center pointer-events-none">
+              <div className="shadow-1 rounded-3xl overflow-hidden w-full h-full pointer-events-auto flex items-center justify-center">
+                <iframe 
+                  src="https://fast.wistia.net/embed/iframe/yd587c9730" 
+                  title="Culture Amp Demo Video"
+                  className="w-full h-full object-cover rounded-3xl"
+                  allow="autoplay; fullscreen"
+                />
+              </div>
+            </div>
           </div>
 
         </div>
@@ -58,60 +119,131 @@ export default function Home() {
       <section className="mb-60 tablet:mb-108 desktop:mb-156">
         <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24">
           <div className="row-start-1 col-start-1 col-span-full">
+            
             <div className="flex items-center justify-center gap-x-8 tablet:gap-x-12 mb-24 desktop:mb-36">
               <p className="font-camper text-20 tablet:text-24 text-center">
                 世界6,000社以上の先進企業に導入されています
               </p>
+              <img 
+                src="/camper-arrow-e2d67d1bcdf9465b66c2.svg" 
+                alt="" 
+                className="self-end mb-1 w-[36px] h-[27px] object-contain" 
+              />
             </div>
             
-            <div className="flex flex-wrap justify-center items-center gap-12 tablet:gap-16 opacity-80">
-              <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/b6ZXYvdnew5ULTc-k4nNoAd6zVk=/0x100/cultureampcom/production/ded/10e/fa8/ded10efa8b3082f295719db8/bombas-mono-black.png" alt="Bombas" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" />
-              <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/lQ56D3kL32OzhBEpm7qbDLjvcYQ=/0x100/cultureampcom/production/1a5/d6b/02b/1a5d6b02b8261221d8d32439/etsy-mono-black.png" alt="Etsy" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" />
-              <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/sYNvNugRjnrZGnAO1dZ8hAt7T-8=/0x100/cultureampcom/production/ed0/812/6ef/ed08126ef3e15d0cbef09b98/mcdonalds-mono-black.png" alt="McDonalds" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" />
-              <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/WHMqmyo_eVeYB1DZjlKGrfD9GrE=/0x100/cultureampcom/production/882/ff4/338/882ff4338eff1c8e2b2b5ba0/logo-intercom-black2x.png" alt="Intercom" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" />
-              <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/JUH89YmI4JIsUAaM3kFTJeuHb3k=/0x100/cultureampcom/production/cb4/ded/466/cb4ded466d0a038c5c408622/on-black.png" alt="On" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" />
+            <div className="marquee">
+              <ul className="marquee__group">
+                <li><img alt="Bombas" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/b6ZXYvdnew5ULTc-k4nNoAd6zVk=/0x100/cultureampcom/production/ded/10e/fa8/ded10efa8b3082f295719db8/bombas-mono-black.png" /></li>
+                <li><img alt="Etsy" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/lQ56D3kL32OzhBEpm7qbDLjvcYQ=/0x100/cultureampcom/production/1a5/d6b/02b/1a5d6b02b8261221d8d32439/etsy-mono-black.png" /></li>
+                <li><img alt="McDonalds" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/sYNvNugRjnrZGnAO1dZ8hAt7T-8=/0x100/cultureampcom/production/ed0/812/6ef/ed08126ef3e15d0cbef09b98/mcdonalds-mono-black.png" /></li>
+                <li><img alt="Intercom" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/WHMqmyo_eVeYB1DZjlKGrfD9GrE=/0x100/cultureampcom/production/882/ff4/338/882ff4338eff1c8e2b2b5ba0/logo-intercom-black2x.png" /></li>
+                <li><img alt="MLB" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/94NqRtiAO8teiGEnB2QmrzYkwGI=/0x100/cultureampcom/production/6cf/986/4da/6cf9864dab1de1b0f6fd7f0e/mlb-logo-monochrome.png" /></li>
+                <li><img alt="On" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/JUH89YmI4JIsUAaM3kFTJeuHb3k=/0x100/cultureampcom/production/cb4/ded/466/cb4ded466d0a038c5c408622/on-black.png" /></li>
+              </ul>
+              <ul aria-hidden="true" className="marquee__group">
+                <li><img alt="Bombas" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/b6ZXYvdnew5ULTc-k4nNoAd6zVk=/0x100/cultureampcom/production/ded/10e/fa8/ded10efa8b3082f295719db8/bombas-mono-black.png" /></li>
+                <li><img alt="Etsy" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/lQ56D3kL32OzhBEpm7qbDLjvcYQ=/0x100/cultureampcom/production/1a5/d6b/02b/1a5d6b02b8261221d8d32439/etsy-mono-black.png" /></li>
+                <li><img alt="McDonalds" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/sYNvNugRjnrZGnAO1dZ8hAt7T-8=/0x100/cultureampcom/production/ed0/812/6ef/ed08126ef3e15d0cbef09b98/mcdonalds-mono-black.png" /></li>
+                <li><img alt="Intercom" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/WHMqmyo_eVeYB1DZjlKGrfD9GrE=/0x100/cultureampcom/production/882/ff4/338/882ff4338eff1c8e2b2b5ba0/logo-intercom-black2x.png" /></li>
+                <li><img alt="MLB" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/94NqRtiAO8teiGEnB2QmrzYkwGI=/0x100/cultureampcom/production/6cf/986/4da/6cf9864dab1de1b0f6fd7f0e/mlb-logo-monochrome.png" /></li>
+                <li><img alt="On" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/JUH89YmI4JIsUAaM3kFTJeuHb3k=/0x100/cultureampcom/production/cb4/ded/466/cb4ded466d0a038c5c408622/on-black.png" /></li>
+              </ul>
             </div>
+
           </div>
         </div>
       </section>
 
       {/* ==========================================================================
-         3. PRODUCT FEATURE PERSONA SET SECTION (Tan Background)
+         3. PRODUCT FEATURE PERSONA SET SECTION
          ========================================================================== */}
       <section className="mb-60 tablet:mb-108 desktop:mb-156 overflow-hidden">
-        <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24">
-          <div className="row-start-1 col-start-1 col-span-full -mx-20 tablet:mx-0 bg-tan rounded-[32px] p-24 tablet:p-36 desktop:p-60">
+        <div className="container">
+          
+          <div className="bg-tan rounded-none p-24 tablet:p-36 desktop:p-60">
             
-            {/* ペルソナタブ */}
-            <div className="hidden tablet:flex gap-x-24 border-b border-black-10 pb-12 mb-36 desktop:mb-48 font-semibold text-14 desktop:text-16">
-              <span className="border-b-2 border-black pb-12 -mb-[14px] cursor-pointer">リーダー</span>
-              <span className="text-muted cursor-pointer hover:text-black transition-colors">マネージャー</span>
-              <span className="text-muted cursor-pointer hover:text-black transition-colors">従業員</span>
-              <span className="text-muted cursor-pointer hover:text-black transition-colors">人事チーム</span>
+            {/* タブメニュー */}
+            <div className="hidden tablet:flex gap-x-36 desktop:gap-x-48 pb-12 mb-36 desktop:mb-48 font-semibold text-14 desktop:text-16">
+              {personas.map((persona, idx) => (
+                <button 
+                  key={persona.id}
+                  onClick={() => setActiveIndex(idx)}
+                  className={`cursor-pointer transition-all ${
+                    activeIndex === idx 
+                      ? "text-black font-bold border-b-2 border-black pb-12 -mb-[14px]" 
+                      : "text-muted hover:text-black pb-12"
+                  }`}
+                >
+                  {persona.label}
+                </button>
+              ))}
             </div>
 
-            {/* ペルソナグリッド */}
-            <div className="grid grid-cols-12 gap-x-24 gap-y-36 desktop:gap-y-84 items-center">
-              <div className="col-start-1 tablet:col-start-2 col-end-full tablet:col-end-12 desktop:col-end-6 h-full flex flex-col justify-center text-black">
-                <p className="tablet:hidden text-14 font-semibold mb-24">リーダー向け</p>
-                <h2 className="font-heading font-medium heading-sm mb-20 tablet:mb-24 desktop:mb-48">
-                  パフォーマンスを促進する<span className="font-camper camper-underline camper-underline--long">データに基づく</span>意思決定に必要なインサイトを取得
-                </h2>
-                <div className="copy text-md">
-                  <p>Culture AmpのAIとピープルサイエンスによるレコメンデーションは、ビジネスの画期的なパフォーマンスを解き放つための、より良い意思決定を可能にします。</p>
+            {/* メインコンテンツ */}
+            <div className="grid grid-cols-1 desktop:grid-cols-12 gap-x-24 gap-y-36 items-center">
+              
+              {/* 左カラム：テキスト ＋ 矢印ボタン */}
+              <div className="desktop:col-span-5 flex flex-col justify-between h-full py-12 text-black">
+                <div>
+                  <p className="tablet:hidden text-14 font-semibold mb-24">{currentPersona.title}</p>
+                  <h2 className="font-heading font-medium heading-sm mb-20 tablet:mb-24 desktop:mb-36">
+                    {currentPersona.heading}
+                  </h2>
+                  <div className="copy text-md mb-24">
+                    <p>{currentPersona.description}</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-16 items-center pt-24">
+                  <button 
+                    onClick={handlePrev}
+                    className="w-[52px] h-[52px] rounded-full border border-black flex items-center justify-center bg-transparent hover:bg-black/10 transition-colors cursor-pointer p-0"
+                    aria-label="前のペルソナへ"
+                  >
+                    <img 
+                      src="/arrow-left-969b7714038056ac77d3.svg" 
+                      alt="前へ" 
+                      className="w-full h-full p-2.5 object-contain"
+                    />
+                  </button>
+                  <button 
+                    onClick={handleNext}
+                    className="w-[52px] h-[52px] rounded-full border border-black flex items-center justify-center bg-transparent hover:bg-black/10 transition-colors cursor-pointer p-0"
+                    aria-label="次のペルソナへ"
+                  >
+                    <img 
+                      src="/arrow-right-f851d389833939f2a311.svg" 
+                      alt="次へ" 
+                      className="w-full h-full p-2.5 object-contain"
+                    />
+                  </button>
                 </div>
               </div>
 
-              <div className="row-start-2 desktop:row-start-1 tablet:col-start-2 desktop:col-start-7 col-end-full tablet:col-end-12 h-full flex flex-col justify-center">
+              {/* 右カラム：背景写真 ＋ 重ね合わせ動画UI */}
+              <div className="desktop:col-span-7 relative min-h-[360px] desktop:min-h-[440px] flex items-center justify-end">
                 <img 
-                  src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/VFQ4H7Q23r8DGMzAR4YluDUJn9Y=/750x0/cultureampcom/production/0f0/715/fa0/0f0715fa00e594569b090ec0/set-persona-managers.jpg" 
-                  alt="Persona Showcase" 
-                  className="w-full rounded-2xl object-cover shadow-1"
+                  src={currentPersona.bgImage} 
+                  alt={currentPersona.label} 
+                  className="w-[85%] desktop:w-[80%] h-auto rounded-2xl object-cover shadow-1 transition-all duration-300"
                 />
+
+                <div className="absolute left-0 bottom-0 tablet:-bottom-4 w-[70%] tablet:w-[65%] z-10 shadow-2 rounded-2xl overflow-hidden bg-white border border-black/10">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <iframe 
+                      src={`https://fast.wistia.net/embed/iframe/${currentPersona.wistiaId}`}
+                      title={`${currentPersona.label} Demo`}
+                      className="w-full h-full object-cover"
+                      allow="autoplay; fullscreen"
+                    />
+                  </div>
+                </div>
               </div>
+
             </div>
 
           </div>
+
         </div>
       </section>
 
@@ -149,7 +281,7 @@ export default function Home() {
         <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24">
           <div className="row-start-1 col-start-1 col-span-full desktop:col-span-6 flex flex-col justify-center mb-36 desktop:mb-0">
             <h2 className="font-heading font-medium heading-md text-center desktop:text-left text-pretty mb-24">
-              より良い<span className="font-camper camper-underline">組織文化</span>と、より良い<span className="font-camper camper-underline">業績の構築</span>をどう支援してきたかをご覧ください
+              より良い組織文化と、より良い業績の構築をどう支援してきたかをご覧ください
             </h2>
             <div className="flex justify-center desktop:justify-start">
               <a href="/case-studies" className="button button--primary">
@@ -175,7 +307,7 @@ export default function Home() {
         <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24">
           <div className="row-start-1 col-start-1 tablet:col-start-2 col-span-full tablet:col-span-10 py-24 desktop:py-48 bg-white shadow-2 rounded-3xl px-24 tablet:px-36">
             {[
-              "スケーラブル、安全、そして相互運用可能",
+              "スケーラブル、安全、画面の相互運用性",
               "迅速に立ち上げるためのサービスとサポート",
               "お客様のデータを安全に保ちます",
               "専門的な人事リソースへのアクセス",
@@ -237,7 +369,7 @@ export default function Home() {
         <div className="container grid grid-cols-1 tablet:grid-cols-12 gap-x-24">
           <div className="col-span-full tablet:col-span-8 desktop:col-span-6 tablet:col-start-3 desktop:col-start-4 text-balance text-center">
             <h2 className="font-heading font-medium heading-lg mb-36">
-              人への投資が、確かな<span className="font-camper camper-underline camper-underline--short">インパクト</span>を創り出す
+              人への投資が、確かなインパクトを創り出す
             </h2>
             <div className="flex flex-col tablet:flex-row items-center justify-center gap-16">
               <button className="button button--primary">

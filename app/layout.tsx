@@ -62,83 +62,83 @@ export default function RootLayout({
                   ソリューション <ChevronDown size={14} className={`transition-transform duration-200 ${isSolutionsOpen ? 'rotate-180' : ''}`} />
                 </button>
 
-                {/* ホバー時に表示されるメガドロップダウンメニュー (中央揃えでズレを解消) */}
+                {/* メガドロップダウン（余白サイズ適正化 ＋ 各項目1行表示） */}
                 {isSolutionsOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-[780px] pt-2 z-50">
-                    <div className="bg-white rounded-2xl shadow-[0px_10px_30px_rgba(0,0,0,0.08)] border border-[#EFE7E0] p-6 grid grid-cols-3 gap-x-6 text-left">
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-[780px] pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+                    <div className="bg-white rounded-2xl shadow-[0px_10px_30px_rgba(0,0,0,0.08)] border border-[#EFE7E0] p-24 grid grid-cols-3 gap-x-20 text-left">
                       
-                      {/* 1. Leadership */}
+                      {/* 1. リーダークラス */}
                       <div>
-                        <p className="text-[11px] font-semibold text-[#524F4C] uppercase tracking-wider mb-3 px-3">
-                          Leadership
+                        <p className="text-[11px] font-bold text-[#524F4C] uppercase tracking-wider mb-12 px-12">
+                          リーダークラス
                         </p>
                         <ul className="space-y-1">
                           <li>
-                            <Link href="/solutions/chro" className="block px-3 py-2 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors">
-                              人事役員 (CHRO)
+                            <Link href="/solutions/chro" className="block px-12 py-8 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors whitespace-nowrap">
+                              人事代表 (CHRO)
                             </Link>
                           </li>
                           <li>
-                            <Link href="/solutions/hr-director" className="block px-3 py-2 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors">
+                            <Link href="/solutions/hr-director" className="block px-12 py-8 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors whitespace-nowrap">
                               人事リーダー
                             </Link>
                           </li>
                           <li>
-                            <Link href="/solutions/cfo" className="block px-3 py-2 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors">
-                              CFOs
+                            <Link href="/solutions/cfo" className="block px-12 py-8 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors whitespace-nowrap">
+                              CFO
                             </Link>
                           </li>
                           <li>
-                            <Link href="/solutions/cio" className="block px-3 py-2 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors">
-                              CIOs / CTOs
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-
-                      {/* 2. Industry */}
-                      <div>
-                        <p className="text-[11px] font-semibold text-[#524F4C] uppercase tracking-wider mb-3 px-3">
-                          Industry
-                        </p>
-                        <ul className="space-y-1">
-                          <li>
-                            <Link href="/solutions/professional-services" className="block px-3 py-2 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors">
-                              Professional Services
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href="/solutions/financial-services" className="block px-3 py-2 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors">
-                              Financial Services
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href="/solutions/software-technology" className="block px-3 py-2 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors">
-                              Software &amp; technology
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href="/solutions/manufacturing" className="block px-3 py-2 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors">
-                              Manufacturing
+                            <Link href="/solutions/cio" className="block px-12 py-8 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors whitespace-nowrap">
+                              CIO / CTO
                             </Link>
                           </li>
                         </ul>
                       </div>
 
-                      {/* 3. Segment */}
+                      {/* 2. 業界 */}
                       <div>
-                        <p className="text-[11px] font-semibold text-[#524F4C] uppercase tracking-wider mb-3 px-3">
-                          Segment
+                        <p className="text-[11px] font-bold text-[#524F4C] uppercase tracking-wider mb-12 px-12">
+                          業界
                         </p>
                         <ul className="space-y-1">
                           <li>
-                            <Link href="/solutions/enterprise" className="block px-3 py-2 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors">
-                              Enterprise
+                            <Link href="/solutions/professional-services" className="block px-12 py-8 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors whitespace-nowrap">
+                              専門職サービス
                             </Link>
                           </li>
                           <li>
-                            <Link href="/solutions/commercial" className="block px-3 py-2 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors">
-                              Commercial
+                            <Link href="/solutions/financial-services" className="block px-12 py-8 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors whitespace-nowrap">
+                              金融サービス
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="/solutions/software-technology" className="block px-12 py-8 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors whitespace-nowrap">
+                              IT＆テック系スタートアップ
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="/solutions/manufacturing" className="block px-12 py-8 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors whitespace-nowrap">
+                              製造業
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+
+                      {/* 3. 会社規模 */}
+                      <div>
+                        <p className="text-[11px] font-bold text-[#524F4C] uppercase tracking-wider mb-12 px-12">
+                          会社規模
+                        </p>
+                        <ul className="space-y-1">
+                          <li>
+                            <Link href="/solutions/enterprise" className="block px-12 py-8 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors whitespace-nowrap">
+                              大企業エンタープライズ
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="/solutions/commercial" className="block px-12 py-8 rounded-lg hover:bg-[#FAF5F2] font-semibold text-[15px] text-black transition-colors whitespace-nowrap">
+                              中小・成長企業
                             </Link>
                           </li>
                         </ul>
@@ -180,8 +180,6 @@ export default function RootLayout({
 
         {/* ==================== FOOTER ==================== */}
         <footer className="border-t border-[#EFE7E0] pt-12 desktop:pt-16 pb-0 text-black">
-          
-          {/* 上部 5カラムリンクエリア */}
           <div className="hidden tablet:grid container grid-cols-5 gap-x-6 mb-9 desktop:mb-12">
             
             {/* 1. プラットフォーム */}
@@ -199,7 +197,7 @@ export default function RootLayout({
               <span className="inline-block mb-4 font-medium text-[16px]">ソリューション</span>
               
               <div className="mb-6">
-                <p className="text-[10px] text-[#524F4C] mb-3">リーダークラス</p>
+                <p className="text-[10px] text-[#524F4C] mb-3 font-semibold uppercase tracking-wider">リーダークラス</p>
                 <ul className="flex flex-col gap-y-[6px]">
                   <li><Link href="/solutions/chro" className="text-[12px] text-black hover:underline underline-offset-2 transition-colors">人事代表 (CHRO)</Link></li>
                   <li><Link href="/solutions/hr-director" className="text-[12px] text-black hover:underline underline-offset-2 transition-colors">人事リーダー</Link></li>
@@ -209,7 +207,7 @@ export default function RootLayout({
               </div>
 
               <div className="mb-6">
-                <p className="text-[10px] text-[#524F4C] mb-3">業界</p>
+                <p className="text-[10px] text-[#524F4C] mb-3 font-semibold uppercase tracking-wider">業界</p>
                 <ul className="flex flex-col gap-y-[6px]">
                   <li><Link href="/solutions/professional-services" className="text-[12px] text-black hover:underline underline-offset-2 transition-colors">専門職サービス</Link></li>
                   <li><Link href="/solutions/financial-services" className="text-[12px] text-black hover:underline underline-offset-2 transition-colors">金融サービス</Link></li>
@@ -219,7 +217,7 @@ export default function RootLayout({
               </div>
 
               <div>
-                <p className="text-[10px] text-[#524F4C] mb-3">会社規模</p>
+                <p className="text-[10px] text-[#524F4C] mb-3 font-semibold uppercase tracking-wider">会社規模</p>
                 <ul className="flex flex-col gap-y-[6px]">
                   <li><Link href="/solutions/enterprise" className="text-[12px] text-black hover:underline underline-offset-2 transition-colors">大企業エンタープライズ</Link></li>
                   <li><Link href="/solutions/commercial" className="text-[12px] text-black hover:underline underline-offset-2 transition-colors">中小・成長企業</Link></li>
@@ -261,10 +259,7 @@ export default function RootLayout({
 
           </div>
 
-          {/* 下部エリア */}
           <div className="container grid grid-cols-2 tablet:grid-cols-5 gap-x-6 gap-y-6 desktop:gap-y-0 mb-[48px] desktop:mb-[60px] items-start">
-            
-            {/* カラム 1: ロゴ */}
             <div className="col-span-1">
               <Link href="/" className="block w-[130px] tablet:w-[160px]">
                 <img 
@@ -275,7 +270,6 @@ export default function RootLayout({
               </Link>
             </div>
             
-            {/* カラム 2: SNS (LinkedIn) */}
             <div className="col-span-1 flex items-center justify-end tablet:justify-start h-full">
               <a 
                 href="https://www.linkedin.com/company/cultureamp" 
@@ -290,7 +284,6 @@ export default function RootLayout({
               </a>
             </div>
 
-            {/* カラム 3〜5: コピーライト */}
             <div className="col-span-full desktop:col-start-3 desktop:col-span-3 text-[10px] text-black">
               <p className="mb-2">
                 © 2026 Culture Amp Pty Ltd, <a href="#" className="border-b border-black">Subscribe</a>, <a href="#" className="border-b border-black">Terms</a>, <a href="#" className="border-b border-black">Privacy</a>, <a href="#" className="border-b border-black">Your Privacy Choices</a>

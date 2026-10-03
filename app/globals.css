@@ -91,17 +91,19 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 768px) { .heading-xl { font-size: 3.75rem; line-height: 4.25rem; } }
 @media (min-width: 1200px) { .heading-xl { font-size: 5.25rem; line-height: 5.625rem; } }
 
+/* heading-lg のデスクトップサイズを 3.25rem に調整 */
 .heading-lg { font-size: 2rem; line-height: 2.5rem; }
 @media (min-width: 768px) { .heading-lg { font-size: 3rem; line-height: 3.75rem; } }
-@media (min-width: 1200px) { .heading-lg { font-size: 3.75rem; line-height: 4.25rem; } }
+@media (min-width: 1200px) { .heading-lg { font-size: 3.25rem; line-height: 3.75rem; } }
 
 .heading-md { font-size: 2rem; line-height: 2.5rem; }
 @media (min-width: 768px) { .heading-md { font-size: 2.5rem; line-height: 3rem; } }
 @media (min-width: 1200px) { .heading-md { font-size: 3rem; line-height: 3.75rem; } }
 
+/* heading-sm のデスクトップサイズを 2rem に調整 */
 .heading-sm { font-size: 1.5rem; line-height: 2.125rem; }
-@media (min-width: 768px) { .heading-sm { font-size: 2rem; line-height: 2.5rem; } }
-@media (min-width: 1200px) { .heading-sm { font-size: 2.5rem; line-height: 3rem; } }
+@media (min-width: 768px) { .heading-sm { font-size: 1.75rem; line-height: 2.25rem; } }
+@media (min-width: 1200px) { .heading-sm { font-size: 2rem; line-height: 2.5rem; } }
 
 .heading-xs { font-size: 1.5rem; line-height: 2.125rem; }
 @media (min-width: 768px) { .heading-xs { font-size: 2rem; line-height: 2.5rem; } }
@@ -185,4 +187,32 @@ h1, h2, h3, h4, h5, h6 {
 .camper-underline--long {
   background-image: url("https://www.cultureamp.com/assets/slices/main/assets/public/media/camper-underlines/underline--long-cc7891ac17c11e42581f.svg");
   background-position: bottom 0.1em center;
+}
+
+/* 7. ロゴ無限スクロール（Marquee）アニメーション */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 24px;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee__group {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 36px;
+  min-width: 100%;
+  animation: marquee-scroll 25s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
