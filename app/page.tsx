@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import { Plus, Minus, ChevronRight } from "lucide-react";
+import LogoMarquee from "@/components/LogoMarquee";
+import BadgeSet from "@/components/BadgeSet";
 
 export default function Home() {
-  // ペルソナタブの状態管理
   const [activePersonaIndex, setActivePersonaIndex] = useState(0);
-
-  // アコーディオンの状態管理（デフォルトで1つ目を開く）
   const [openAccordion, setOpenAccordion] = useState<number | null>(0);
 
   const personas = [
@@ -113,12 +112,9 @@ export default function Home() {
   return (
     <div className="bg-pale text-black font-sans selection:bg-purple-200">
       
-      {/* ==========================================================================
-         1. HERO SECTION
-         ========================================================================== */}
+      {/* 1. HERO SECTION */}
       <section className="mb-60 tablet:mb-108 desktop:mb-156 pt-24 desktop:pt-84 desktop:mb-108">
         <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24 items-center">
-          
           <div className="z-40 flex flex-col gap-24 desktop:gap-36 justify-center row-start-1 col-span-full tablet:col-span-10 tablet:col-start-2 desktop:col-span-5 desktop:col-start-1 items-center desktop:items-start text-center desktop:text-left mb-36 tablet:mb-60 desktop:mb-0">
             <h1 className="font-heading font-medium heading-lg text-center text-balance desktop:text-left">
               組織文化を最大の競争優位性に
@@ -126,11 +122,8 @@ export default function Home() {
             <div className="copy text-lg text-balance text-center desktop:text-left">
               ピープルサイエンスとAIを活用したCulture Ampは、パフォーマンス、定着率、増収を推進するためのインサイトと実践的ツールを提供します。
             </div>
-
             <div className="flex flex-col tablet:flex-row items-center gap-16">
-              <button className="button button--primary">
-                デモを予約
-              </button>
+              <button className="button button--primary">デモを予約</button>
             </div>
           </div>
 
@@ -140,7 +133,6 @@ export default function Home() {
               alt="Hero Background" 
               className="w-full h-auto rounded-[32px] object-cover block"
             />
-
             <div className="absolute inset-0 p-16 tablet:p-28 desktop:p-36 flex flex-col justify-center items-center pointer-events-none">
               <div className="shadow-1 rounded-3xl overflow-hidden w-full h-full pointer-events-auto flex items-center justify-center">
                 <iframe 
@@ -152,59 +144,16 @@ export default function Home() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* ==========================================================================
-         2. LOGO MARQUEE SECTION
-         ========================================================================== */}
-      <section className="mb-60 tablet:mb-108 desktop:mb-156">
-        <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24">
-          <div className="row-start-1 col-start-1 col-span-full">
-            
-            <div className="flex items-center justify-center gap-x-8 tablet:gap-x-12 mb-24 desktop:mb-36">
-              <p className="font-camper text-20 tablet:text-24 text-center">
-                世界6,000社以上の先進企業に導入されています
-              </p>
-              <img 
-                src="/camper-arrow-e2d67d1bcdf9465b66c2.svg" 
-                alt="" 
-                className="self-end mb-1 w-[36px] h-[27px] object-contain" 
-              />
-            </div>
-            
-            <div className="marquee">
-              <ul className="marquee__group">
-                <li><img alt="Bombas" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/b6ZXYvdnew5ULTc-k4nNoAd6zVk=/0x100/cultureampcom/production/ded/10e/fa8/ded10efa8b3082f295719db8/bombas-mono-black.png" /></li>
-                <li><img alt="Etsy" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/lQ56D3kL32OzhBEpm7qbDLjvcYQ=/0x100/cultureampcom/production/1a5/d6b/02b/1a5d6b02b8261221d8d32439/etsy-mono-black.png" /></li>
-                <li><img alt="McDonalds" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/sYNvNugRjnrZGnAO1dZ8hAt7T-8=/0x100/cultureampcom/production/ed0/812/6ef/ed08126ef3e15d0cbef09b98/mcdonalds-mono-black.png" /></li>
-                <li><img alt="Intercom" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/WHMqmyo_eVeYB1DZjlKGrfD9GrE=/0x100/cultureampcom/production/882/ff4/338/882ff4338eff1c8e2b2b5ba0/logo-intercom-black2x.png" /></li>
-                <li><img alt="MLB" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/94NqRtiAO8teiGEnB2QmrzYkwGI=/0x100/cultureampcom/production/6cf/986/4da/6cf9864dab1de1b0f6fd7f0e/mlb-logo-monochrome.png" /></li>
-                <li><img alt="On" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/JUH89YmI4JIsUAaM3kFTJeuHb3k=/0x100/cultureampcom/production/cb4/ded/466/cb4ded466d0a038c5c408622/on-black.png" /></li>
-              </ul>
-              <ul aria-hidden="true" className="marquee__group">
-                <li><img alt="Bombas" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/b6ZXYvdnew5ULTc-k4nNoAd6zVk=/0x100/cultureampcom/production/ded/10e/fa8/ded10efa8b3082f295719db8/bombas-mono-black.png" /></li>
-                <li><img alt="Etsy" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/lQ56D3kL32OzhBEpm7qbDLjvcYQ=/0x100/cultureampcom/production/1a5/d6b/02b/1a5d6b02b8261221d8d32439/etsy-mono-black.png" /></li>
-                <li><img alt="McDonalds" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/sYNvNugRjnrZGnAO1dZ8hAt7T-8=/0x100/cultureampcom/production/ed0/812/6ef/ed08126ef3e15d0cbef09b98/mcdonalds-mono-black.png" /></li>
-                <li><img alt="Intercom" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/WHMqmyo_eVeYB1DZjlKGrfD9GrE=/0x100/cultureampcom/production/882/ff4/338/882ff4338eff1c8e2b2b5ba0/logo-intercom-black2x.png" /></li>
-                <li><img alt="MLB" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/94NqRtiAO8teiGEnB2QmrzYkwGI=/0x100/cultureampcom/production/6cf/986/4da/6cf9864dab1de1b0f6fd7f0e/mlb-logo-monochrome.png" /></li>
-                <li><img alt="On" className="max-h-24 tablet:max-h-36 max-w-108 desktop:max-w-132 object-contain" src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/JUH89YmI4JIsUAaM3kFTJeuHb3k=/0x100/cultureampcom/production/cb4/ded/466/cb4ded466d0a038c5c408622/on-black.png" /></li>
-              </ul>
-            </div>
+      {/* 2. LOGO MARQUEE SECTION (モジュール化コンポーネント) */}
+      <LogoMarquee />
 
-          </div>
-        </div>
-      </section>
-
-      {/* ==========================================================================
-         3. PRODUCT FEATURE PERSONA SET SECTION
-         ========================================================================== */}
+      {/* 3. PRODUCT FEATURE PERSONA SET SECTION */}
       <section className="mb-60 tablet:mb-108 desktop:mb-156 overflow-hidden">
         <div className="container">
-          
           <div className="bg-tan rounded-none p-24 tablet:p-36 desktop:p-60">
-            
             <div className="hidden tablet:flex gap-x-36 desktop:gap-x-48 pb-12 mb-36 desktop:mb-48 font-semibold text-14 desktop:text-16">
               {personas.map((persona, idx) => (
                 <button 
@@ -222,7 +171,6 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 desktop:grid-cols-12 gap-x-24 gap-y-36 items-center">
-              
               <div className="desktop:col-span-5 flex flex-col justify-between h-full py-12 text-black">
                 <div>
                   <p className="tablet:hidden text-14 font-semibold mb-24">{currentPersona.title}</p>
@@ -240,22 +188,14 @@ export default function Home() {
                     className="w-[52px] h-[52px] rounded-full border border-black flex items-center justify-center bg-transparent hover:bg-black/10 transition-colors cursor-pointer p-0"
                     aria-label="前のペルソナへ"
                   >
-                    <img 
-                      src="/arrow-left-969b7714038056ac77d3.svg" 
-                      alt="前へ" 
-                      className="w-full h-full p-2.5 object-contain"
-                    />
+                    <img src="/arrow-left-969b7714038056ac77d3.svg" alt="前へ" className="w-full h-full p-2.5 object-contain" />
                   </button>
                   <button 
                     onClick={handleNextPersona}
                     className="w-[52px] h-[52px] rounded-full border border-black flex items-center justify-center bg-transparent hover:bg-black/10 transition-colors cursor-pointer p-0"
                     aria-label="次のペルソナへ"
                   >
-                    <img 
-                      src="/arrow-right-f851d389833939f2a311.svg" 
-                      alt="次へ" 
-                      className="w-full h-full p-2.5 object-contain"
-                    />
+                    <img src="/arrow-right-f851d389833939f2a311.svg" alt="次へ" className="w-full h-full p-2.5 object-contain" />
                   </button>
                 </div>
               </div>
@@ -266,7 +206,6 @@ export default function Home() {
                   alt={currentPersona.label} 
                   className="w-[85%] desktop:w-[80%] h-auto rounded-2xl object-cover shadow-1 transition-all duration-300"
                 />
-
                 <div className="absolute left-0 bottom-0 tablet:-bottom-4 w-[70%] tablet:w-[65%] z-10 shadow-2 rounded-2xl overflow-hidden bg-white border border-black/10">
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <iframe 
@@ -278,47 +217,15 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-
             </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* ==========================================================================
-         4. BADGE SET SECTION
-         ========================================================================== */}
-      <section className="mb-60 tablet:mb-108 desktop:mb-156">
-        <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24">
-          <div className="col-start-1 col-span-full text-center">
-            <h2 className="font-heading font-medium heading-sm text-balance mb-24 tablet:mb-36 desktop:mb-48">
-              皆様のおかげで、世界最大級のIT製品レビュープラットフォーム「G2」で高い評価をいただいております。
-            </h2>
-            <ul className="flex flex-wrap gap-24 tablet:gap-36 desktop:gap-48 items-center justify-center">
-              <li className="max-w-[66px] tablet:max-w-84 desktop:max-w-[110px]">
-                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/Q1MFCXP-KmUsHkHKbPCgPw5AT4k=/0x500/cultureampcom/production/f6c/32f/7d0/f6c32f7d0e1c7c8be851a746/EmployeeEngagement-Leader-Enterprise-Leader.png" alt="Enterprise Leader G2 badge" className="w-full h-auto" />
-              </li>
-              <li className="max-w-[66px] tablet:max-w-84 desktop:max-w-[110px]">
-                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/dBKRW3K-EaqrV_mwewMPkZ21IGE=/0x500/cultureampcom/production/20d/252/f80/20d252f8085653948e28a0d8/EmployeeEngagement-Leader-Mid-Market-Leader.png" alt="Mid-Market Leader G2 badge" className="w-full h-auto" />
-              </li>
-              <li className="max-w-[66px] tablet:max-w-84 desktop:max-w-[110px]">
-                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/9HsIwuc3rcDMMUl3gl43MrEgb3k=/0x500/cultureampcom/production/cb9/8ec/dfc/cb98ecdfca76c8b9bdd058bc/CareerManagement-BestResults-Enterprise-Total.png" alt="Best Results Enterprise G2 badge" className="w-full h-auto" />
-              </li>
-              <li className="max-w-[66px] tablet:max-w-84 desktop:max-w-[110px]">
-                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/yWo7sKnFPSItRUbQ4F47uH3Syek=/0x500/cultureampcom/production/5d2/cb4/224/5d2cb42243b7ebf6c4dd647e/HRAnalytics-HighPerformer-Enterprise-HighPerformer.png" alt="High Performer Enterprise G2 badge" className="w-full h-auto" />
-              </li>
-              <li className="max-w-[66px] tablet:max-w-84 desktop:max-w-[110px]">
-                <img src="https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/JQI2rxTeVixI-2kxdo5BaXQGLtc=/0x500/cultureampcom/production/684/e26/fe2/684e26fe22d534171a874d2a/ObjectivesandKeyResultsOKR-MostImplementable-Mid-Market-Total.png" alt="Most Implementable Mid-Market G2 badge" className="w-full h-auto" />
-              </li>
-            </ul>
           </div>
         </div>
       </section>
 
-      {/* ==========================================================================
-         5. CASE STUDY CAROUSEL PREVIEW SECTION
-         ========================================================================== */}
+      {/* 4. BADGE SET SECTION (モジュール化コンポーネント) */}
+      <BadgeSet />
+
+      {/* 5. CASE STUDY CAROUSEL PREVIEW SECTION */}
       <section className="mb-60 tablet:mb-108 desktop:mb-156">
         <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24">
           <div className="row-start-1 col-start-1 col-span-full desktop:col-span-6 flex flex-col justify-center mb-36 desktop:mb-0">
@@ -342,19 +249,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==========================================================================
-         6. CONTENT DRAWER / ACCORDION SECTION
-         ========================================================================== */}
+      {/* 6. CONTENT DRAWER / ACCORDION SECTION */}
       <section className="mb-60 tablet:mb-108 desktop:mb-156">
         <div className="container">
-          
           <div className="-mx-20 tablet:mx-0 bg-white shadow-2 p-24 tablet:p-36">
             <div className="divide-y divide-black/10">
               {accordions.map((item, idx) => {
                 const isOpen = openAccordion === idx;
                 return (
                   <div key={idx} className="py-12 desktop:py-16">
-                    
                     <button
                       onClick={() => setOpenAccordion(isOpen ? null : idx)}
                       className="w-full flex items-center justify-between text-left group cursor-pointer py-8"
@@ -370,7 +273,6 @@ export default function Home() {
                     {isOpen && (
                       <div className="pt-16 pb-12 animate-in fade-in duration-300">
                         <div className="grid grid-cols-1 desktop:grid-cols-12 gap-x-24 gap-y-24 items-center">
-                          
                           <div className="desktop:col-span-6 flex flex-col justify-center">
                             <h3 className="font-heading font-medium heading-sm mb-12 text-pretty">
                               {item.heading}
@@ -386,34 +288,23 @@ export default function Home() {
                               </div>
                             )}
                           </div>
-
                           <div className="desktop:col-span-6 flex justify-center">
-                            <img
-                              src={item.image}
-                              alt={item.title}
-                              className="w-full max-w-[420px] h-auto object-contain rounded-2xl"
-                            />
+                            <img src={item.image} alt={item.title} className="w-full max-w-[420px] h-auto object-contain rounded-2xl" />
                           </div>
-
                         </div>
                       </div>
                     )}
-
                   </div>
                 );
               })}
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* ==========================================================================
-         7. RESOURCES / BRAND CAMPAIGN SECTION
-         ========================================================================== */}
+      {/* 7. RESOURCES / BRAND CAMPAIGN SECTION */}
       <section className="mb-60 tablet:mb-108 desktop:mb-156">
         <div className="container grid grid-cols-6 tablet:grid-cols-12 gap-x-24 items-center">
-          
           <div className="col-start-1 col-span-full tablet:col-span-6 desktop:col-span-5 flex flex-col justify-center mb-36 tablet:mb-48">
             <h2 className="heading-md font-heading font-medium text-pretty mb-16 tablet:mb-24">
               リーダーはいかにして高業績を形成するか
@@ -433,30 +324,12 @@ export default function Home() {
 
           <div className="col-span-full grid grid-cols-1 tablet:grid-cols-2 gap-y-16 tablet:gap-y-24 gap-x-24 desktop:gap-x-84">
             {[
-              {
-                title: "カルチャーがパフォーマンスを推進する",
-                link: "/culture-drives-performance",
-              },
-              {
-                title: "テニス・オーストラリア導入事例",
-                link: "/tennis-australia",
-              },
-              {
-                title: "次世代カルチャークリエイター",
-                link: "/emerging-culture-creators",
-              },
-              {
-                title: "エスター・ペレルによるマネージャーガイド",
-                link: "/resources/guides-and-toolkits/esther-perel-managers-guide",
-              },
-              {
-                title: "Culture First ポッドキャスト",
-                link: "/podcast",
-              },
-              {
-                title: "パフォーマンスの可能性を解き放つ",
-                link: "/resources/tag/performance-unlocked",
-              },
+              { title: "カルチャーがパフォーマンスを推進する", link: "/culture-drives-performance" },
+              { title: "テニス・オーストラリア導入事例", link: "/tennis-australia" },
+              { title: "次世代カルチャークリエイター", link: "/emerging-culture-creators" },
+              { title: "エスター・ペレルによるマネージャーガイド", link: "/resources/guides-and-toolkits/esther-perel-managers-guide" },
+              { title: "Culture First ポッドキャスト", link: "/podcast" },
+              { title: "パフォーマンスの可能性を解き放つ", link: "/resources/tag/performance-unlocked" },
             ].map((item, idx) => (
               <div key={idx} className="group relative col-span-1 border-l border-b border-black/30">
                 <a href={item.link} className="flex items-center justify-between px-16 py-12 desktop:px-24 desktop:py-16">
@@ -468,13 +341,10 @@ export default function Home() {
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* ==========================================================================
-         8. FINAL BOTTOM CTA SECTION (文言変更)
-         ========================================================================== */}
+      {/* 8. FINAL BOTTOM CTA SECTION */}
       <section className="pb-60 tablet:pb-84 desktop:pb-132">
         <div className="container grid grid-cols-1 tablet:grid-cols-12 gap-x-24">
           <div className="col-span-full tablet:col-span-8 desktop:col-span-6 tablet:col-start-3 desktop:col-start-4 text-balance text-center">
@@ -482,12 +352,8 @@ export default function Home() {
               従業員への投資が、確かなインパクトを創り出します
             </h2>
             <div className="flex flex-col tablet:flex-row items-center justify-center gap-16">
-              <button className="button button--primary">
-                デモを予約
-              </button>
-              <a href="/platform" className="button button--secondary">
-                機能を見る
-              </a>
+              <button className="button button--primary">デモを予約</button>
+              <a href="/platform" className="button button--secondary">機能を見る</a>
             </div>
           </div>
         </div>

@@ -1,15 +1,36 @@
 @import "tailwindcss";
 
-/* 1. 本国 .com のカラー変数定義 */
+/* 1. 本国 .com のカラー変数 ＆ 日本語フォント変数定義 */
 :root {
   --ca-bg-pale: rgba(254, 251, 249, 1);       /* #FEFBF9 */
   --ca-bg-tan: rgba(246, 239, 234, 1);        /* #F6EFEA */
   --ca-text-black: rgba(23, 26, 27, 1);       /* #171A1B */
   --ca-text-muted: rgba(82, 79, 76, 1);       /* #524F4C */
   --ca-border-efe7e0: rgba(239, 231, 224, 1); /* #EFE7E0 */
+
+  /* 本国公式カラーパレット (RGBA) */
+  --ca-teal-200: rgba(166, 229, 231, 1);
+  --ca-teal-300: rgba(100, 210, 215, 1);
+  --ca-teal-400: rgba(0, 179, 183, 1);
+  --ca-teal-500: rgba(6, 92, 99, 1);          /* Hero緑・主要グリーン */
+  --ca-teal-600: rgba(0, 90, 96, 1);          /* ダークティールヘッダー */
+
+  --ca-purple-200: rgba(228, 200, 242, 1);
+  --ca-purple-300: rgba(200, 136, 226, 1);
+  --ca-purple-400: rgba(154, 54, 178, 1);
+  --ca-purple-500: rgba(124, 49, 106, 1);     /* Hero紫・主要パープル */
+
+  --ca-orange-200: rgba(255, 209, 185, 1);    /* スラッシュ / の色 */
+  --ca-orange-300: rgba(255, 176, 138, 1);
+  --ca-orange-400: rgba(255, 92, 11, 1);
+  --ca-orange-500: rgba(183, 67, 2, 1);
+
+  /* Noto Serif JP (明朝体) / Noto Sans JP (ゴシック体) のスタック定義 */
+  --font-japan-sans: var(--font-noto-sans-jp), "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-japan-serif: var(--font-noto-serif-jp), "Noto Serif JP", "Shippori Mincho", "Yu Mincho", serif;
 }
 
-/* 2. 本国独自ブレークポイント & Spacing スケールの完全定義 */
+/* 2. 本国独自ブレークポイント & テーマ定義 */
 @theme {
   --breakpoint-tablet: 768px;
   --breakpoint-desktop: 1200px;
@@ -19,7 +40,22 @@
   --color-black: var(--ca-text-black);
   --color-muted: var(--ca-text-muted);
 
-  /* 本国固有 Spacing スケール (px数値を直接オーバーライド) */
+  --color-teal-200: var(--ca-teal-200);
+  --color-teal-300: var(--ca-teal-300);
+  --color-teal-400: var(--ca-teal-400);
+  --color-teal-500: var(--ca-teal-500);
+  --color-teal-600: var(--ca-teal-600);
+
+  --color-purple-200: var(--ca-purple-200);
+  --color-purple-300: var(--ca-purple-300);
+  --color-purple-400: var(--ca-purple-400);
+  --color-purple-500: var(--ca-purple-500);
+
+  --color-orange-200: var(--ca-orange-200);
+  --color-orange-300: var(--ca-orange-300);
+  --color-orange-400: var(--ca-orange-400);
+  --color-orange-500: var(--ca-orange-500);
+
   --spacing-2: 2px;
   --spacing-4: 4px;
   --spacing-6: 6px;
@@ -39,8 +75,8 @@
   --spacing-132: 132px;
   --spacing-156: 156px;
 
-  --font-sans: var(--font-noto-sans-jp), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-serif: var(--font-noto-serif-jp), Georgia, serif;
+  --font-sans: var(--font-japan-sans);
+  --font-serif: var(--font-japan-serif);
 }
 
 html {
@@ -51,19 +87,24 @@ html {
 body {
   background-color: var(--ca-bg-pale);
   color: var(--ca-text-black);
-  font-family: var(--font-sans);
+  font-family: var(--font-japan-sans);
   font-size: 1rem;
   line-height: 1.375rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  color: var(--ca-text-black);
+/* 3. 見出し（明朝体 Noto Serif JP）の絶対指定 */
+h1, h2, h3, h4, h5, h6, .font-heading, .font-serif {
+  font-family: var(--font-japan-serif) !important;
 }
 
-/* 3. 本国 .container 規格 */
+/* 4. 本文・UI（ゴシック体 Noto Sans JP） */
+.font-sans, .font-main {
+  font-family: var(--font-japan-sans);
+}
+
+/* 5. 本国 .container 規格 */
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -86,7 +127,46 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* 4. 本国タイポグラフィ規格 */
+/* 6. 本国 Grid カラム位置決めユーティリティ */
+.col-start-1 { grid-column-start: 1; }
+.col-start-2 { grid-column-start: 2; }
+.col-start-3 { grid-column-start: 3; }
+.col-start-4 { grid-column-start: 4; }
+.col-start-5 { grid-column-start: 5; }
+.col-start-6 { grid-column-start: 6; }
+.col-start-7 { grid-column-start: 7; }
+
+.col-end-1 { grid-column-end: 1; }
+.col-end-2 { grid-column-end: 2; }
+.col-end-3 { grid-column-end: 3; }
+.col-end-4 { grid-column-end: 4; }
+.col-end-5 { grid-column-end: 5; }
+.col-end-6 { grid-column-end: 6; }
+.col-end-7 { grid-column-end: 7; }
+.col-end-8 { grid-column-end: 8; }
+.col-end-9 { grid-column-end: 9; }
+.col-end-10 { grid-column-end: 10; }
+.col-end-11 { grid-column-end: 11; }
+.col-end-12 { grid-column-end: 12; }
+.col-end-full { grid-column-end: -1; }
+
+@media (min-width: 1200px) {
+  .desktop\:col-start-1 { grid-column-start: 1; }
+  .desktop\:col-start-2 { grid-column-start: 2; }
+  .desktop\:col-start-3 { grid-column-start: 3; }
+  .desktop\:col-start-4 { grid-column-start: 4; }
+  .desktop\:col-start-5 { grid-column-start: 5; }
+  .desktop\:col-start-6 { grid-column-start: 6; }
+  .desktop\:col-start-7 { grid-column-start: 7; }
+
+  .desktop\:col-end-6 { grid-column-end: 6; }
+  .desktop\:col-end-7 { grid-column-end: 7; }
+  .desktop\:col-end-11 { grid-column-end: 11; }
+  .desktop\:col-end-12 { grid-column-end: 12; }
+  .desktop\:col-end-full { grid-column-end: -1; }
+}
+
+/* 7. 本国タイポグラフィ規格 */
 .heading-xl { font-size: 2.5rem; line-height: 3rem; }
 @media (min-width: 768px) { .heading-xl { font-size: 3.75rem; line-height: 4.25rem; } }
 @media (min-width: 1200px) { .heading-xl { font-size: 5.25rem; line-height: 5.625rem; } }
@@ -95,7 +175,6 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 768px) { .heading-lg { font-size: 3rem; line-height: 3.75rem; } }
 @media (min-width: 1200px) { .heading-lg { font-size: 3.25rem; line-height: 3.75rem; } }
 
-/* heading-md の 1200px 以上を 2.75rem / 3.75rem に変更 */
 .heading-md { font-size: 2rem; line-height: 2.5rem; }
 @media (min-width: 768px) { .heading-md { font-size: 2.5rem; line-height: 3rem; } }
 @media (min-width: 1200px) { .heading-md { font-size: 2.75rem; line-height: 3.25rem; } }
@@ -123,7 +202,7 @@ h1, h2, h3, h4, h5, h6 {
 .text-xs { font-size: 0.75rem; line-height: 1.125rem; }
 @media (min-width: 1200px) { .text-xs { font-size: 0.875rem; line-height: 1.25rem; } }
 
-/* 5. 本国 .button スタイル */
+/* 8. 本国 .button スタイル */
 .button {
   display: inline-flex;
   width: auto;
@@ -133,7 +212,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 9999px;
   border: 1px solid var(--ca-text-black);
   padding: 14px 20px;
-  font-family: var(--font-sans);
+  font-family: var(--font-japan-sans);
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.25;
@@ -173,22 +252,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: rgba(250, 245, 242, 1);
 }
 
-/* 6. ブランドデコレーション */
-.camper-underline {
-  background-image: url("https://www.cultureamp.com/assets/slices/main/assets/public/media/camper-underlines/underline-90299f4ac4568b9f8c84.svg");
-  background-position: bottom 0.12em center;
-  background-size: 100% 0.2em;
-  background-repeat: no-repeat;
-}
-.camper-underline--short {
-  background-image: url("https://www.cultureamp.com/assets/slices/main/assets/public/media/camper-underlines/underline--short-7b7e919cc77a2b6e4f18.svg");
-}
-.camper-underline--long {
-  background-image: url("https://www.cultureamp.com/assets/slices/main/assets/public/media/camper-underlines/underline--long-cc7891ac17c11e42581f.svg");
-  background-position: bottom 0.1em center;
-}
-
-/* 7. ロゴ無限スクロール（Marquee）アニメーション */
+/* 9. ロゴ無限スクロール（Marquee）アニメーション */
 .marquee {
   display: flex;
   overflow: hidden;
