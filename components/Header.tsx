@@ -328,10 +328,10 @@ export default function Header() {
                 {openMobileSubmenu === "platform" ? <Minus size={20} /> : <Plus size={20} />}
               </div>
               {openMobileSubmenu === "platform" && (
-                <ul className="pl-16 pt-12 pb-4 space-y-8 text-15 text-[#524F4C] animate-in fade-in duration-150">
-                  <li><Link href="/platform/engage" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">エンゲージメント</Link></li>
-                  <li><Link href="/platform/perform" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">パフォーマンス</Link></li>
-                  <li><Link href="/platform/plans-and-pricing" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">料金表</Link></li>
+                <ul className="pl-16 pt-12 pb-4 space-y-8 text-15 font-semibold text-black animate-in fade-in duration-150">
+                  <li><Link href="/platform/engage" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">エンゲージメント</Link></li>
+                  <li><Link href="/platform/perform" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">パフォーマンス</Link></li>
+                  <li><Link href="/platform/plans-and-pricing" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">料金表</Link></li>
                 </ul>
               )}
             </li>
@@ -348,28 +348,28 @@ export default function Header() {
               {openMobileSubmenu === "solutions" && (
                 <div className="pl-16 pt-12 pb-4 space-y-16 text-15 animate-in fade-in duration-150">
                   <div>
-                    <p className="text-11 font-bold text-[#8C8784] uppercase tracking-wider mb-6">リーダークラス</p>
-                    <ul className="space-y-6 text-[#524F4C]">
-                      <li><Link href="/solutions/chro" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-black">人事代表 (CHRO)</Link></li>
-                      <li><Link href="/solutions/hr-director" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-black">人事リーダー</Link></li>
-                      <li><Link href="/solutions/cfo" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-black">CFO</Link></li>
-                      <li><Link href="/solutions/cto" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-black">CIO / CTO</Link></li>
+                    <p className="text-[12px] font-normal text-[#8C8784] tracking-wider mb-6">リーダークラス</p>
+                    <ul className="space-y-6 text-black font-semibold">
+                      <li><Link href="/solutions/chro" onClick={() => setIsMobileMenuOpen(false)} className="block hover:opacity-80">人事代表 (CHRO)</Link></li>
+                      <li><Link href="/solutions/hr-director" onClick={() => setIsMobileMenuOpen(false)} className="block hover:opacity-80">人事リーダー</Link></li>
+                      <li><Link href="/solutions/cfo" onClick={() => setIsMobileMenuOpen(false)} className="block hover:opacity-80">CFO</Link></li>
+                      <li><Link href="/solutions/cto" onClick={() => setIsMobileMenuOpen(false)} className="block hover:opacity-80">CIO / CTO</Link></li>
                     </ul>
                   </div>
                   <div>
-                    <p className="text-11 font-bold text-[#8C8784] uppercase tracking-wider mb-6">業界</p>
-                    <ul className="space-y-6 text-[#524F4C]">
-                      <li><Link href="/solutions/professional-services" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-black">専門職サービス</Link></li>
-                      <li><Link href="/solutions/financial-services" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-black">金融サービス</Link></li>
-                      <li><Link href="/solutions/software-technology" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-black">IT＆テック系スタートアップ</Link></li>
-                      <li><Link href="/solutions/manufacturing" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-black">製造業</Link></li>
+                    <p className="text-[12px] font-normal text-[#8C8784] tracking-wider mb-6">業界</p>
+                    <ul className="space-y-6 text-black font-semibold">
+                      <li><Link href="/solutions/professional-services" onClick={() => setIsMobileMenuOpen(false)} className="block hover:opacity-80">専門職サービス</Link></li>
+                      <li><Link href="/solutions/financial-services" onClick={() => setIsMobileMenuOpen(false)} className="block hover:opacity-80">金融サービス</Link></li>
+                      <li><Link href="/solutions/software-technology" onClick={() => setIsMobileMenuOpen(false)} className="block hover:opacity-80">IT＆テック系スタートアップ</Link></li>
+                      <li><Link href="/solutions/manufacturing" onClick={() => setIsMobileMenuOpen(false)} className="block hover:opacity-80">製造業</Link></li>
                     </ul>
                   </div>
                   <div>
-                    <p className="text-11 font-bold text-[#8C8784] uppercase tracking-wider mb-6">会社規模</p>
-                    <ul className="space-y-6 text-[#524F4C]">
-                      <li><Link href="/solutions/enterprise" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-black">大企業エンタープライズ</Link></li>
-                      <li><Link href="/solutions/commercial" onClick={() => setIsMobileMenuOpen(false)} className="block hover:text-black">中小・成長企業</Link></li>
+                    <p className="text-[12px] font-normal text-[#8C8784] tracking-wider mb-6">会社規模</p>
+                    <ul className="space-y-6 text-black font-semibold">
+                      <li><Link href="/solutions/enterprise" onClick={() => setIsMobileMenuOpen(false)} className="block hover:opacity-80">大企業エンタープライズ</Link></li>
+                      <li><Link href="/solutions/commercial" onClick={() => setIsMobileMenuOpen(false)} className="block hover:opacity-80">中小・成長企業</Link></li>
                     </ul>
                   </div>
                 </div>
@@ -386,10 +386,10 @@ export default function Header() {
                 {openMobileSubmenu === "science" ? <Minus size={20} /> : <Plus size={20} />}
               </div>
               {openMobileSubmenu === "science" && (
-                <ul className="pl-16 pt-12 pb-4 space-y-8 text-15 text-[#524F4C] animate-in fade-in duration-150">
-                  <li><Link href="/tools/benchmark" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">ベンチマーク</Link></li>
-                  <li><Link href="/tools/roi-calculator" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">ROI 計算機</Link></li>
-                  <li><Link href="/tools/research" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">リサーチ</Link></li>
+                <ul className="pl-16 pt-12 pb-4 space-y-8 text-15 font-semibold text-black animate-in fade-in duration-150">
+                  <li><Link href="/tools/benchmark" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">ベンチマーク</Link></li>
+                  <li><Link href="/tools/roi-calculator" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">ROI 計算機</Link></li>
+                  <li><Link href="/tools/research" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">リサーチ</Link></li>
                 </ul>
               )}
             </li>
@@ -404,10 +404,10 @@ export default function Header() {
                 {openMobileSubmenu === "resources" ? <Minus size={20} /> : <Plus size={20} />}
               </div>
               {openMobileSubmenu === "resources" && (
-                <ul className="pl-16 pt-12 pb-4 space-y-8 text-15 text-[#524F4C] animate-in fade-in duration-150">
-                  <li><Link href="/resources" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">リソースハブ</Link></li>
-                  <li><Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">ブログ</Link></li>
-                  <li><Link href="/case-studies" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">ケーススタディ</Link></li>
+                <ul className="pl-16 pt-12 pb-4 space-y-8 text-15 font-semibold text-black animate-in fade-in duration-150">
+                  <li><Link href="/resources" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">リソースハブ</Link></li>
+                  <li><Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">ブログ</Link></li>
+                  <li><Link href="/case-studies" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">ケーススタディ</Link></li>
                 </ul>
               )}
             </li>
@@ -422,12 +422,12 @@ export default function Header() {
                 {openMobileSubmenu === "company" ? <Minus size={20} /> : <Plus size={20} />}
               </div>
               {openMobileSubmenu === "company" && (
-                <ul className="pl-16 pt-12 pb-4 space-y-8 text-15 text-[#524F4C] animate-in fade-in duration-150">
-                  <li><Link href="/company/about" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">Culture Ampについて</Link></li>
-                  <li><Link href="/company/careers" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">採用情報</Link></li>
-                  <li><Link href="/company/contact-us" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">問合せ</Link></li>
-                  <li><Link href="/company/trust" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">サポート・セキュリティ</Link></li>
-                  <li><Link href="/company/legal" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:text-black">リーガル</Link></li>
+                <ul className="pl-16 pt-12 pb-4 space-y-8 text-15 font-semibold text-black animate-in fade-in duration-150">
+                  <li><Link href="/company/about" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">Culture Ampについて</Link></li>
+                  <li><Link href="/company/careers" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">採用情報</Link></li>
+                  <li><Link href="/company/contact-us" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">問合せ</Link></li>
+                  <li><Link href="/company/trust" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">サポート・セキュリティ</Link></li>
+                  <li><Link href="/company/legal" onClick={() => setIsMobileMenuOpen(false)} className="block py-4 hover:opacity-80">リーガル</Link></li>
                 </ul>
               )}
             </li>
